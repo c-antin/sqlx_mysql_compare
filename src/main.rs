@@ -4,7 +4,7 @@ use anyhow::anyhow;
 use mysql::{prelude::*, Conn, Opts, Params};
 use sqlx::{Connection, Executor, MySqlConnection, QueryBuilder};
 
-#[tokio::main]
+#[tokio::main(flavor = "current_thread")]
 async fn main() -> anyhow::Result<()> {
     let url = env::var("MYSQL_URL")?;
     let mut args = env::args();
